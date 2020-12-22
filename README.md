@@ -1,6 +1,14 @@
-# CowbernetesApi
+# cowbernetes_api
 
-**TODO: Add description**
+## 400+ ASCII COWS
+
+Make a `GET` request for a parade of 400+ ASCII cows: one every 1.5 seconds.
+
+Use this command:
+
+```bash
+curl https://cows.cowbernetes.com
+```
 
 ## Installation
 
