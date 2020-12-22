@@ -10,20 +10,8 @@ Use this command:
 curl https://cows.cowbernetes.com
 ```
 
-## Installation
+## Credit
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `cowbernetes_api` to your list of dependencies in `mix.exs`:
+I got this from Alex Ellis and his [blog post on ASCII Cow Fun with Docker](https://blog.alexellis.io/cows-on-docker/)
 
-```elixir
-def deps do
-  [
-    {:cowbernetes_api, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/cowbernetes_api](https://hexdocs.pm/cowbernetes_api).
-
+Ellis learned about it from the original creater, [Sindre Sorhus and his ASCII Cow Repo](https://github.com/search?q=user%3Asindresorhus+cows)
