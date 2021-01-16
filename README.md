@@ -1,17 +1,28 @@
-# cowbernetes_api
+## cowbernetes api
 
-## 400+ ASCII COWS
+get a cow every 1.5 seconds:
 
-Make a `GET` request for a parade of 400+ ASCII cows: one every 1.5 seconds.
-
-Use this command:
-
-```bash
+```
 curl https://cows.cowbernetes.com
 ```
 
-## Credit
+### credit
 
-I got this from Alex Ellis and his [blog post on ASCII Cow Fun with Docker](https://blog.alexellis.io/cows-on-docker/)
+[Sindre Sorhus and his ASCII Cow Repo](https://github.com/sindresorhus/cows).
 
-Ellis learned about it from the original creater, [Sindre Sorhus and his ASCII Cow Repo](https://github.com/search?q=user%3Asindresorhus+cows)
+I took the original Sorhus herd and made it callable. I used Elixir and Plug. Here is the route:
+
+```elixir
+    get "/" do
+      conn = send_chunked(conn, 200)
+      Enum.reduce_while(Sprigg.Cows.cows, conn, fn (chunk, conn) ->
+        case Plug.Conn.chunk(conn, "#{chunk}\n\n\n") do
+          {:ok, conn} ->
+            Process.sleep(1500)
+            {:cont, conn}
+          {:error, :closed} ->
+            {:halt, conn}
+        end
+      end)
+    end
+```
