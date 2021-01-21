@@ -15,7 +15,7 @@ I took the original Sorhus herd and made it callable. I used Elixir and Plug. He
 ```elixir
     get "/" do
       conn = send_chunked(conn, 200)
-      Enum.reduce_while(Sprigg.Cows.cows, conn, fn (chunk, conn) ->
+      Enum.reduce_while(CowbernetesApi.Cows.cows, conn, fn (chunk, conn) ->
         case Plug.Conn.chunk(conn, "#{chunk}\n\n\n") do
           {:ok, conn} ->
             Process.sleep(1500)
